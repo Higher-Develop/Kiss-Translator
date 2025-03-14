@@ -383,8 +383,8 @@ export const OPT_STYLE_USE_COLOR = [
   OPT_STYLE_BLOCKQUOTE,
 ];
 
-export const OPT_TIMING_PAGESCROLL = "mk_pagescroll"; // 滚动加载翻译
-export const OPT_TIMING_PAGEOPEN = "mk_pageopen"; // 直接翻译到底
+export const OPT_TIMING_PAGESCROLL = "mk_pagescroll"; // แปลขณะเลื่อนหน้า
+export const OPT_TIMING_PAGEOPEN = "mk_pageopen"; // แปลทันทีเมื่อเปิดหน้า
 export const OPT_TIMING_MOUSEOVER = "mk_mouseover";
 export const OPT_TIMING_CONTROL = "mk_ctrlKey";
 export const OPT_TIMING_SHIFT = "mk_shiftKey";
@@ -398,50 +398,51 @@ export const OPT_TIMING_ALL = [
   OPT_TIMING_ALT,
 ];
 
-export const DEFAULT_FETCH_LIMIT = 10; // 默认最大任务数量
-export const DEFAULT_FETCH_INTERVAL = 100; // 默认任务间隔时间
+// กำหนดค่าเริ่มต้น
+export const DEFAULT_FETCH_LIMIT = 10; // จำนวนงานสูงสุดเริ่มต้น
+export const DEFAULT_FETCH_INTERVAL = 100; // เวลาระหว่างงานเริ่มต้น
 
-export const INPUT_PLACE_URL = "{{url}}"; // 占位符
-export const INPUT_PLACE_FROM = "{{from}}"; // 占位符
-export const INPUT_PLACE_TO = "{{to}}"; // 占位符
-export const INPUT_PLACE_TEXT = "{{text}}"; // 占位符
-export const INPUT_PLACE_KEY = "{{key}}"; // 占位符
-export const INPUT_PLACE_MODEL = "{{model}}"; // 占位符
+export const INPUT_PLACE_URL = "{{url}}"; // ตัวแทนของ URL
+export const INPUT_PLACE_FROM = "{{from}}"; // ตัวแทนของภาษาเริ่มต้น
+export const INPUT_PLACE_TO = "{{to}}"; // ตัวแทนของภาษาปลายทาง
+export const INPUT_PLACE_TEXT = "{{text}}"; // ตัวแทนของข้อความ
+export const INPUT_PLACE_KEY = "{{key}}"; // ตัวแทนของคีย์
+export const INPUT_PLACE_MODEL = "{{model}}"; // ตัวแทนของโมเดล
 
-export const DEFAULT_COLOR = "#209CEE"; // 默认高亮背景色/线条颜色
+export const DEFAULT_COLOR = "#209CEE"; // สีพื้นหลัง/เส้นขีดที่เน้นค่าเริ่มต้น
 
-export const DEFAULT_TRANS_TAG = "span";
+export const DEFAULT_TRANS_TAG = "span"; // แท็กของข้อความแปลเริ่มต้น
 export const DEFAULT_SELECT_STYLE =
-  "-webkit-line-clamp: unset; max-height: none; height: auto;";
+  "-webkit-line-clamp: unset; max-height: none; height: auto;"; // สไตล์ของการเลือกข้อความเริ่มต้น
 
-// 全局规则
+// กฎทั่วโลก
 export const GLOBLA_RULE = {
-  pattern: "*", // 匹配网址
-  selector: DEFAULT_SELECTOR, // 选择器
-  keepSelector: DEFAULT_KEEP_SELECTOR, // 保留元素选择器
-  terms: "", // 专业术语
-  translator: OPT_TRANS_MICROSOFT, // 翻译服务
-  fromLang: "auto", // 源语言
-  toLang: "zh-CN", // 目标语言
-  textStyle: OPT_STYLE_DASHLINE, // 译文样式
-  transOpen: "false", // 开启翻译
-  bgColor: "", // 译文颜色
-  textDiyStyle: "", // 自定义译文样式
-  selectStyle: DEFAULT_SELECT_STYLE, // 选择器节点样式
-  parentStyle: DEFAULT_SELECT_STYLE, // 选择器父节点样式
-  injectJs: "", // 注入JS
-  injectCss: "", // 注入CSS
-  transOnly: "false", // 是否仅显示译文
-  transTiming: OPT_TIMING_PAGESCROLL, // 翻译时机/鼠标悬停翻译
-  transTag: DEFAULT_TRANS_TAG, // 译文元素标签
-  transTitle: "false", // 是否同时翻译页面标题
-  detectRemote: "false", // 是否使用远程语言检测
-  skipLangs: [], // 不翻译的语言
-  fixerSelector: "", // 修复函数选择器
-  fixerFunc: "-", // 修复函数
-  transStartHook: "", // 钩子函数
-  transEndHook: "", // 钩子函数
-  transRemoveHook: "", // 钩子函数
+  pattern: "*", // ตรงกับเว็บไซต์
+  selector: DEFAULT_SELECTOR, // ตัวเลือก
+  keepSelector: DEFAULT_KEEP_SELECTOR, // เก็บตัวเลือกขององค์ประกอบ
+  terms: "", // คำศัพท์เฉพาะ
+  translator: OPT_TRANS_MICROSOFT, // บริการแปลภาษา
+  fromLang: "auto", // ภาษาเริ่มต้น
+  toLang: "zh-CN", // ภาษาปลายทาง
+  textStyle: OPT_STYLE_DASHLINE, // สไตล์ของข้อความแปล
+  transOpen: "false", // เปิดการแปล
+  bgColor: "", // สีพื้นหลังของข้อความแปล
+  textDiyStyle: "", // สไตล์ข้อความแปลที่กำหนดเอง
+  selectStyle: DEFAULT_SELECT_STYLE, // สไตล์ของตัวเลือก
+  parentStyle: DEFAULT_SELECT_STYLE, // สไตล์ของพ่อแม่ของตัวเลือก
+  injectJs: "", // การแทรก JS
+  injectCss: "", // การแทรก CSS
+  transOnly: "false", // แสดงแค่ข้อความแปลหรือไม่
+  transTiming: OPT_TIMING_PAGESCROLL, // เวลาของการแปล/แปลเมื่อเลื่อนหน้า
+  transTag: DEFAULT_TRANS_TAG, // แท็กของข้อความแปล
+  transTitle: "false", // แปลชื่อเรื่องของหน้าเว็บหรือไม่
+  detectRemote: "false", // ใช้การตรวจจับภาษาจากระยะไกลหรือไม่
+  skipLangs: [], // ภาษาที่ไม่แปล
+  fixerSelector: "", // ตัวเลือกสำหรับฟังก์ชันการแก้ไข
+  fixerFunc: "-", // ฟังก์ชันการแก้ไข
+  transStartHook: "", // ฟังก์ชัน hook สำหรับเริ่มการแปล
+  transEndHook: "", // ฟังก์ชัน hook สำหรับสิ้นสุดการแปล
+  transRemoveHook: "", // ฟังก์ชัน hook สำหรับลบ
 };
 
 // 输入框翻译
@@ -483,16 +484,16 @@ export const DEFAULT_TRANBOX_SETTING = {
   btnOffsetY: 10,
   boxOffsetX: 0,
   boxOffsetY: 10,
-  hideTranBtn: false, // 是否隐藏翻译按钮
-  hideClickAway: false, // 是否点击外部关闭弹窗
-  simpleStyle: false, // 是否简洁界面
-  followSelection: false, // 翻译框是否跟随选中文本
-  triggerMode: OPT_TRANBOX_TRIGGER_CLICK, // 触发翻译方式
-  extStyles: "", // 附加样式
-  enDict: OPT_DICT_BAIDU, // 英文词典
+  hideTranBtn: false, // แสดงหรือซ่อนปุ่มแปล
+  hideClickAway: false, // แสดงหรือซ่อนการคลิกนอกหน้าต่างเพื่อปิด
+  simpleStyle: false, // แสดงหรือซ่อนอินเตอร์เฟซแบบเรียบง่าย
+  followSelection: false, // ให้กล่องแปลตามข้อความที่เลือกหรือไม่
+  triggerMode: OPT_TRANBOX_TRIGGER_CLICK, // วิธีการเรียกใช้งานการแปล
+  extStyles: "", // สไตล์เพิ่มเติม
+  enDict: OPT_DICT_BAIDU, // พจนานุกรมภาษาอังกฤษ
 };
 
-// 订阅列表
+// รายการการสมัครสมาชิก
 export const DEFAULT_SUBRULES_LIST = [
   {
     url: process.env.REACT_APP_RULESURL,
@@ -508,13 +509,13 @@ export const DEFAULT_SUBRULES_LIST = [
   },
 ];
 
-// 翻译接口
+// อินเตอร์เฟซการแปล
 const defaultCustomApi = {
   url: "",
   key: "",
-  customOption: "", // (作废)
-  reqHook: "", // request 钩子函数
-  resHook: "", // response 钩子函数
+  customOption: "", // (หมดอายุ)
+  reqHook: "", // ฟังก์ชัน hook สำหรับ request
+  resHook: "", // ฟังก์ชัน hook สำหรับ response
   fetchLimit: DEFAULT_FETCH_LIMIT,
   fetchInterval: DEFAULT_FETCH_INTERVAL,
 };
@@ -540,8 +541,8 @@ export const DEFAULT_TRANS_APIS = {
   [OPT_TRANS_GOOGLE]: {
     url: URL_GOOGLE_TRAN,
     key: "",
-    fetchLimit: DEFAULT_FETCH_LIMIT, // 最大任务数量
-    fetchInterval: DEFAULT_FETCH_INTERVAL, // 任务间隔时间
+    fetchLimit: DEFAULT_FETCH_LIMIT, // จำนวนงานสูงสุด
+    fetchInterval: DEFAULT_FETCH_INTERVAL, // เวลาระหว่างงาน
   },
   [OPT_TRANS_MICROSOFT]: {
     fetchLimit: DEFAULT_FETCH_LIMIT,
@@ -606,74 +607,64 @@ export const DEFAULT_TRANS_APIS = {
   [OPT_TRANS_CUSTOMIZE_5]: defaultCustomApi,
 };
 
-// 默认快捷键
-export const OPT_SHORTCUT_TRANSLATE = "toggleTranslate";
-export const OPT_SHORTCUT_STYLE = "toggleStyle";
-export const OPT_SHORTCUT_POPUP = "togglePopup";
-export const OPT_SHORTCUT_SETTING = "openSetting";
+// คีย์ลัดเริ่มต้น
+export const OPT_SHORTCUT_TRANSLATE = "toggleTranslate"; // คีย์ลัดสำหรับแปล
+export const OPT_SHORTCUT_STYLE = "toggleStyle"; // คีย์ลัดสำหรับสไตล์
+export const OPT_SHORTCUT_POPUP = "togglePopup"; // คีย์ลัดสำหรับป๊อปอัพ
+export const OPT_SHORTCUT_SETTING = "openSetting"; // คีย์ลัดสำหรับการตั้งค่า
 export const DEFAULT_SHORTCUTS = {
-  [OPT_SHORTCUT_TRANSLATE]: ["AltLeft", "KeyQ"],
-  [OPT_SHORTCUT_STYLE]: ["AltLeft", "KeyC"],
-  [OPT_SHORTCUT_POPUP]: ["AltLeft", "KeyK"],
-  [OPT_SHORTCUT_SETTING]: ["AltLeft", "KeyO"],
+  [OPT_SHORTCUT_TRANSLATE]: ["AltLeft", "KeyQ"], // ใช้ Alt + Q เพื่อแปล
+  [OPT_SHORTCUT_STYLE]: ["AltLeft", "KeyC"], // ใช้ Alt + C สำหรับเปลี่ยนสไตล์
+  [OPT_SHORTCUT_POPUP]: ["AltLeft", "KeyK"], // ใช้ Alt + K เพื่อเปิดป๊อปอัพ
+  [OPT_SHORTCUT_SETTING]: ["AltLeft", "KeyO"], // ใช้ Alt + O เพื่อเปิดการตั้งค่า
 };
 
-export const TRANS_MIN_LENGTH = 5; // 最短翻译长度
-export const TRANS_MAX_LENGTH = 5000; // 最长翻译长度
-export const TRANS_NEWLINE_LENGTH = 20; // 换行字符数
+export const TRANS_MIN_LENGTH = 5; // ความยาวข้อความขั้นต่ำที่จะแปล
+export const TRANS_MAX_LENGTH = 5000; // ความยาวข้อความสูงสุดที่จะแปล
+export const TRANS_NEWLINE_LENGTH = 20; // จำนวนตัวอักษรที่ใช้เพื่อขึ้นบรรทัดใหม่
 export const DEFAULT_BLACKLIST = [
-  "https://fishjar.github.io/kiss-translator/options.html",
-  "https://translate.google.com",
-  "https://www.deepl.com/translator",
-  "oapi.dingtalk.com",
+  "https://fishjar.github.io/kiss-translator/options.html", 
+  "https://translate.google.com", 
+  "https://www.deepl.com/translator", 
+  "oapi.dingtalk.com", 
   "login.dingtalk.com",
-]; // 禁用翻译名单
-export const DEFAULT_CSPLIST = ["https://github.com"]; // 禁用CSP名单
+]; // รายการเว็บไซต์ที่ไม่ให้แปล
+export const DEFAULT_CSPLIST = ["https://github.com"]; // รายการเว็บไซต์ที่ไม่ให้ใช้ CSP
 
 export const DEFAULT_SETTING = {
-  darkMode: false, // 深色模式
-  uiLang: "en", // 界面语言
-  // fetchLimit: DEFAULT_FETCH_LIMIT, // 最大任务数量(移至transApis，作废)
-  // fetchInterval: DEFAULT_FETCH_INTERVAL, // 任务间隔时间(移至transApis，作废)
-  minLength: TRANS_MIN_LENGTH,
-  maxLength: TRANS_MAX_LENGTH,
-  newlineLength: TRANS_NEWLINE_LENGTH,
-  clearCache: false, // 是否在浏览器下次启动时清除缓存
-  injectRules: true, // 是否注入订阅规则
-  // injectWebfix: true, // 是否注入修复补丁(作废)
-  // detectRemote: false, // 是否使用远程语言检测(移至rule，作废)
-  // contextMenus: true, // 是否添加右键菜单(作废)
-  contextMenuType: 1, // 右键菜单类型(0不显示，1简单菜单，2多级菜单)
-  // transTag: DEFAULT_TRANS_TAG, // 译文元素标签(移至rule，作废)
-  // transOnly: false, // 是否仅显示译文(移至rule，作废)
-  // transTitle: false, // 是否同时翻译页面标题(移至rule，作废)
-  subrulesList: DEFAULT_SUBRULES_LIST, // 订阅列表
-  owSubrule: DEFAULT_OW_RULE, // 覆写订阅规则
-  transApis: DEFAULT_TRANS_APIS, // 翻译接口
-  // mouseKey: OPT_TIMING_PAGESCROLL, // 翻译时机/鼠标悬停翻译(移至rule，作废)
-  shortcuts: DEFAULT_SHORTCUTS, // 快捷键
-  inputRule: DEFAULT_INPUT_RULE, // 输入框设置
-  tranboxSetting: DEFAULT_TRANBOX_SETTING, // 划词翻译设置
-  touchTranslate: 2, // 触屏翻译
-  blacklist: DEFAULT_BLACKLIST.join(",\n"), // 禁用翻译名单
-  csplist: DEFAULT_CSPLIST.join(",\n"), // 禁用CSP名单
-  // disableLangs: [], // 不翻译的语言(移至rule，作废)
-  transInterval: 500, // 翻译间隔时间
-  langDetector: OPT_TRANS_MICROSOFT, // 远程语言识别服务
+  darkMode: false, // โหมดมืด
+  uiLang: "en", // ภาษาในหน้าต่าง
+  minLength: TRANS_MIN_LENGTH, // ความยาวข้อความขั้นต่ำที่จะแปล
+  maxLength: TRANS_MAX_LENGTH, // ความยาวข้อความสูงสุดที่จะแปล
+  newlineLength: TRANS_NEWLINE_LENGTH, // จำนวนตัวอักษรที่ใช้เพื่อขึ้นบรรทัดใหม่
+  clearCache: false, // ลบแคชเมื่อเริ่มต้นเบราว์เซอร์
+  injectRules: true, // เปิดการแทรกกฎการสมัครสมาชิก
+  contextMenuType: 1, // ประเภทเมนูขวา (0 ไม่แสดง, 1 เมนูง่าย, 2 เมนูหลายระดับ)
+  subrulesList: DEFAULT_SUBRULES_LIST, // รายการการสมัครสมาชิก
+  owSubrule: DEFAULT_OW_RULE, // การเขียนทับกฎการสมัครสมาชิก
+  transApis: DEFAULT_TRANS_APIS, // API การแปล
+  shortcuts: DEFAULT_SHORTCUTS, // คีย์ลัด
+  inputRule: DEFAULT_INPUT_RULE, // การตั้งค่ากล่องข้อความ
+  tranboxSetting: DEFAULT_TRANBOX_SETTING, // การตั้งค่ากล่องแปล
+  touchTranslate: 2, // การแปลด้วยหน้าจอสัมผัส
+  blacklist: DEFAULT_BLACKLIST.join(",\n"), // รายการเว็บไซต์ที่ไม่ให้แปล
+  csplist: DEFAULT_CSPLIST.join(",\n"), // รายการเว็บไซต์ที่ไม่ให้ใช้ CSP
+  transInterval: 500, // เวลาระหว่างการแปล
+  langDetector: OPT_TRANS_MICROSOFT, // บริการตรวจจับภาษา
 };
 
 export const DEFAULT_RULES = [GLOBLA_RULE];
 
-export const OPT_SYNCTYPE_WORKER = "KISS-Worker";
-export const OPT_SYNCTYPE_WEBDAV = "WebDAV";
-export const OPT_SYNCTYPE_ALL = [OPT_SYNCTYPE_WORKER, OPT_SYNCTYPE_WEBDAV];
+export const OPT_SYNCTYPE_WORKER = "KISS-Worker"; // วิธีการซิงค์แบบ KISS-Worker
+export const OPT_SYNCTYPE_WEBDAV = "WebDAV"; // วิธีการซิงค์แบบ WebDAV
+export const OPT_SYNCTYPE_ALL = [OPT_SYNCTYPE_WORKER, OPT_SYNCTYPE_WEBDAV]; // ทั้งหมดของวิธีการซิงค์
 
 export const DEFAULT_SYNC = {
-  syncType: OPT_SYNCTYPE_WORKER, // 同步方式
-  syncUrl: "", // 数据同步接口
-  syncUser: "", // 数据同步用户名
-  syncKey: "", // 数据同步密钥
-  syncMeta: {}, // 数据更新及同步信息
-  subRulesSyncAt: 0, // 订阅规则同步时间
-  dataCaches: {}, // 缓存同步时间
+  syncType: OPT_SYNCTYPE_WORKER, // วิธีการซิงค์
+  syncUrl: "", // URL สำหรับซิงค์ข้อมูล
+  syncUser: "", // ชื่อผู้ใช้สำหรับซิงค์ข้อมูล
+  syncKey: "", // คีย์สำหรับซิงค์ข้อมูล
+  syncMeta: {}, // ข้อมูลการอัปเดตและซิงค์
+  subRulesSyncAt: 0, // เวลาการซิงค์กฎการสมัครสมาชิก
+  dataCaches: {}, // เวลาซิงค์แคชข้อมูล
 };
